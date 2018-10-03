@@ -4,10 +4,7 @@ def string_compression(stringa):
 
     pos = 0
     count = 0
-
-    dict_test = Counter(stringa)
-    if (len(dict_test.keys()) == len(stringa)):
-        return stringa
+    changed = False
 
     result = ""
     for item in stringa:
@@ -19,6 +16,7 @@ def string_compression(stringa):
         else:
             if item == holder:
                 count += 1
+                changed = True
             else:
                 result += str(count)
                 holder = item
@@ -30,7 +28,10 @@ def string_compression(stringa):
 
         pos += 1
     
-    return result
+    if changed:
+        return result
+    else:
+        return stringa
 
 if __name__ == "__main__":
 
