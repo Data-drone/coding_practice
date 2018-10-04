@@ -91,7 +91,7 @@ int main() {
 
     // find zeros and set the column and row
     std::cout << "-----## added a zero ##-----" << std::endl;
-    zero_matrix_opt(test_matrix);
+    zero_matrix(test_matrix);
     print_matrix(test_matrix);
 
     std::cout << "-----## added a zeroed out ##-----" << std::endl;
@@ -112,7 +112,7 @@ int main() {
 
     // find zeros and set the column and row
     std::cout << "-----## added a zero ##-----" << std::endl;
-    zero_matrix_opt(test_mat_2);
+    zero_matrix(test_mat_2);
     print_matrix(test_mat_2);
 
     std::cout << "-----## added a zeroed out ##-----" << std::endl;
