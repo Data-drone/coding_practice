@@ -1,3 +1,4 @@
+
 class node:
     def __init__(self, value = None):
         self.next = None
@@ -17,7 +18,7 @@ class llist:
     def __str__(self):    
         for item in self:
             if item is not None:
-                print("{0} /t".format(item.value))
+                print("{0} \t".format(item.value))
 
         return "---END---"
 
@@ -37,13 +38,21 @@ def sum_vecs(list1, list2):
 
     total = llist()
 
-    for i1, i2 in zip(list1, list2):
-        v1 = i1.value
-        v2 = i2.value
+    v1 = []
+    v2 = []
 
-        sum_val = v1+v2
-        total.addValue(sum_val)
-    
+    for i1, i2 in zip(list1, list2):
+        v1 = [str(i1.value)] + v1
+        v2 = [str(i2.value)] + v2
+
+    num1 = int(''.join(v1))
+    num2 = int(''.join(v2))
+
+    summation = str(num1 + num2)[::-1]
+
+    for digit in summation:
+        total.addValue(digit)
+
     return total
 
 
@@ -56,7 +65,7 @@ if __name__ == "__main__":
 
     vec_2 = llist()
     vec_2.addValue(6)
-    vec_2.addValue(4)
+    vec_2.addValue(6)
     vec_2.addValue(3)
 
     sum_vec = sum_vecs(vec_1, vec_2)
