@@ -6,7 +6,7 @@ class node:
 class llist:
 
     def __init__(self, head=None):
-        self.head = None
+        self.head = head
         self.tail = None
 
     def __iter__(self):
