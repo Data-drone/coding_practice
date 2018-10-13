@@ -128,6 +128,4 @@ int main() {
     main1->addNode(n1);
     dupes = main1->check_loop();
 
-
-
 }
