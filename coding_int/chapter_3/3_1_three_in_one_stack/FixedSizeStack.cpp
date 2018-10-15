@@ -3,8 +3,8 @@
 FixedSizeStack::FixedSizeStack(int stack_size) {
 
     this->stackCapacity = stack_size;
-    values = new int[stackCapacity * stackNum];
-    sizes = new int[stackNum];
+    values = new int[stackCapacity * stackNum]();
+    sizes = new int[stackNum]();
     //sizes = {0};
 }
 
@@ -13,10 +13,11 @@ void FixedSizeStack::push(int item, int stacknum) {
     if (isFull(stacknum)) {
         std::cout << "stack is full" << std::endl;
     } else {
-        this->sizes[stacknum]++;
+        //std::cout << "adding to array" << std::endl;
+        sizes[stacknum]++;
         // this is updating the size too for some reason?
-        int index = stackNum*stackCapacity+this->sizes[stacknum];
-        this->values[index] = item;
+        int index = stackNum*stackCapacity+sizes[stacknum]-1;
+        values[index] = item;
     }
 
 }
@@ -37,7 +38,7 @@ int FixedSizeStack::peek(int stacknum) {
     if(isEmpty(stacknum)) {
         throw "stack is empty";
     } else {
-        return values[stackNum*stackCapacity+sizes[stacknum]];
+        return values[stackNum*stackCapacity+sizes[stacknum]-1];
     }
 }
 
