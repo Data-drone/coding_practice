@@ -17,7 +17,7 @@ int main() {
         testing->push(3, i);
         testing->push(2, i);
         testing->printSize();
-        testing->push(4, i);
+        testing->push(10, i);
         std::cout << "---post load---" << std::endl;
         testing->printSize();
     }

@@ -11,17 +11,12 @@ FixedSizeStack::FixedSizeStack(int stack_size) {
 void FixedSizeStack::push(int item, int stacknum) {
     
     if (isFull(stacknum)) {
-        //std::cout << std::to_string(stackCapacity) << std::endl;
-        //std::cout << std::to_string(sizes[stacknum]) << std::endl;
         std::cout << "stack is full" << std::endl;
     } else {
-        if (sizes[stacknum] < stackCapacity) {
-            sizes[stacknum]++;
-        } else {
-            std::cout << "what is happening!" << std::endl;
-        }
-        
-        values[stackNum*stackCapacity+sizes[stacknum]] = item;
+        this->sizes[stacknum]++;
+        // this is updating the size too for some reason?
+        int index = stackNum*stackCapacity+this->sizes[stacknum];
+        this->values[index] = item;
     }
 
 }
