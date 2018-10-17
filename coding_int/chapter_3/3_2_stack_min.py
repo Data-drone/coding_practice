@@ -1,4 +1,4 @@
-from stack import stack
+from stack import stack, item
 
 class MinStack(stack):
 
@@ -6,7 +6,7 @@ class MinStack(stack):
         stack.__init__(self)
         self.min_array = []
         
-    def min():
+    def min(self):
         return self.min_array[-1]
     
     def push(self, datavalue):
@@ -45,3 +45,21 @@ class MinStack(stack):
 if __name__ == "__main__":
 
     test_stack = MinStack()
+
+    test_stack.push(4)
+    assert test_stack.min().data == 4, 'wrong minimum'
+
+    test_stack.push(3)
+    assert test_stack.min().data == 3, 'wrong minimum'
+
+    test_stack.push(2)
+    assert test_stack.min().data == 2, 'wrong minimum'
+
+    test_stack.push(6)
+    assert test_stack.min().data == 2, 'wrong minimum'
+
+    test_stack.pop()
+    test_stack.pop()
+    assert test_stack.min().data == 3, 'wrong minimum'
+
+
