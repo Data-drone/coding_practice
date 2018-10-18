@@ -18,9 +18,10 @@ class MinStack
 
     void push(int item);
     int pop();
-    int peak();
+    int peek();
     int min();
     bool isEmpty();
+    void printStack();
 
     node* head;
     node* tail;
