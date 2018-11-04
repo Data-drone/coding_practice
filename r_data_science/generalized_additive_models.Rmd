@@ -1,0 +1,22 @@
+---
+title: "General Additive Models"
+output: html_notebook
+---
+
+This notebook is to explore Generalized Additive Models.
+Based on: https://datascienceplus.com/generalized-additive-models/
+
+```{r}
+library(gam)
+library(ISLR)
+attach(Wage)
+```
+
+A Generalized Additive Model is a model where the predictions consist of a summation of multiple Non-linear functions
+
+```{r}
+model1 <- gam(wage~s(age, df=6) + s(year,df=6) + education .data=Wage)
+
+summary(model1)
+```
+
