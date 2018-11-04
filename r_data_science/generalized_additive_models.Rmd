@@ -15,8 +15,41 @@ attach(Wage)
 A Generalized Additive Model is a model where the predictions consist of a summation of multiple Non-linear functions
 
 ```{r}
-model1 <- gam(wage~s(age, df=6) + s(year,df=6) + education .data=Wage)
+model1 <- gam(wage~s(age, df=6) + s(year,df=6) + education ,data=Wage)
 
 summary(model1)
+```
+# Plotting the model fit
+
+```{r}
+par(mfrow=c(1,3))
+plot(model1, se=T)
+```
+# Logistic Regression w GAMs
+
+```{r}
+
+logitgam <- gam(I(wage > 250) ~ s(age, df=4) + s(year,df=4) + education, data=Wage, family=binomial)
+plot(logitgam,se=T)
+
+```
+
+lets compare this model with one that is linear in year as well
+
+```{r}
+
+logitgam2 <- gam(I(wage > 250) ~ s(age, df=4) + year + education, data=Wage, family=binomial)
+plot(logitgam2, se=T)
+
+```
+
+# Checking Goodness of fit
+
+We will check goodness of fit using anova
+
+```{r}
+
+anova(logitgam, logitgam2, test = "Chisq")
+
 ```
 
