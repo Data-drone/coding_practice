@@ -53,3 +53,17 @@ anova(logitgam, logitgam2, test = "Chisq")
 
 ```
 
+# Another way of fitting a GAM
+
+lm GAM fit
+
+```{r}
+lm1<-lm(wage ~ ns(age,df=4) + ns(year,df=4)+ education , data  = Wage)
+#ns() is function used to fit a Natural Cubic Spline
+lm1
+
+#Now plotting the Model
+
+plot.Gam(lm1,se=T)
+```
+
